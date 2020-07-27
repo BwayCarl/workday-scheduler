@@ -32,3 +32,8 @@ $(taskInput).each(function() {       // Creates a for loop though each row class
     }
 
 });
+
+//Save task data provided by user.
+
+
+// Save task input provided by user into localStorage.
