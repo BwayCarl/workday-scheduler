@@ -32,4 +32,3 @@ $(taskInput).each(function() {       // Creates a for loop though each row class
     }
 
 });
-
