@@ -3,7 +3,7 @@ const today = moment().format("dddd, MMMM Do, YYYY"); // Current day
 const currentTime = moment(); //Current time
 const currentHour = moment().format("k"); //Current hour in military time
 
-let taskInput = $(".row textarea[type=text]"); //
+
 
 $(document).ready(function() {
 });
@@ -11,14 +11,17 @@ $(document).ready(function() {
 $("#currentDay").append(today) // Adds current day/date at top of Calendar.
 
 
-// Time block background colors for past(gray), present(red) and future(green)
+        // Time block background colors for past(gray), present(red) and future(green)
+let taskInput = $(".row textarea[type=text]"); // Entering task in appropriate hour block.
 
-$(taskInput).each(function() {       // Creates a for loop though each row class for the ID 
-                                    //  of each textarea div.(https://api.jquery.com/each/#each-function)
-    
+$(taskInput).each(function() {       
+
+         /* Creates a for loop though each row class for the ID of each textarea div.(https://api.jquery.com/each/#each-function) */
    
-    const taskInputNumber = parseInt($(this).attr("id"));
-    console.log(taskInputNumber)       //Compares textares ID to current hour.
+    const taskInputNumber = parseInt($(this).attr("id")); // ID corresponds to the hour number in military time. (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+    
+        //Compares textarea ID to current hour; adds the appropriate background color.
+
     if (taskInputNumber < currentHour) {
         $(this).addClass("past")
     }
@@ -33,7 +36,15 @@ $(taskInput).each(function() {       // Creates a for loop though each row class
 
 });
 
-//Save task data provided by user.
+//Save task data provided by user when clicking Save button.
+
+$(".saveBtn").click(function() {
+    event.preventDefault();
+
+    let hrTask = $(this).attr("hour")      // Corresponds to the key referenced for localStorage - also same as hour in military time.
+    let storeTask = $(this).prev().val();  // Previous sibling https://api.jquery.com/prev/ (in this case previous sibling is the textarea, value is the text entered.)
+
+    localStorage.setItem(hrTask, JSON.stringify(storeTask));
+});
 
 
-// Save task input provided by user into localStorage.
