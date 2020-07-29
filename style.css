@@ -82,5 +82,11 @@ footer {
   padding: 1rem;
   text-align: center;
   vertical-align: middle;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+}
 
+.quote {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.75rem;
 }
