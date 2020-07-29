@@ -8,7 +8,7 @@ A daily calendar with the following:
 - Current date in the header.
 - Time blocks for work day schedule with text areas and save buttons per hour.
 - Background shading designating past, present or future time block.
-- Task entered saves to local storage and persists when navigated away from and/or page is refreshed.
+- Task entered saves to local storage and persists when navigated away from page and/or is refreshed.
 
 ### Screenshot of Application
 
